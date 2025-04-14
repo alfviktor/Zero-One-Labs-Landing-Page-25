@@ -14,15 +14,10 @@ const Header = () => {
   const [isHeaderExpanded, setIsHeaderExpended] = useState(false)
 
   const links = [
-    'Store',
-    'Mac',
-    'iPad',
-    'Watch',
-    'AirPods',
-    'TV & Home',
-    'Entertainment',
-    'Accessories',
-    'Support',
+    'Alma',
+    'Business',
+    'Research',
+    'Contact',
   ]
 
   return (
@@ -37,16 +32,7 @@ const Header = () => {
         ))}
       </div>
 
-      <div className={stl.icons}>
-        <SearchIcon />
-        <CartIcon />
-        <button
-          onClick={() => setIsHeaderExpended(!isHeaderExpanded)}
-          className={stl.hamburgerIcon}
-        >
-          {isHeaderExpanded ? <CrossIcon /> : <HamburgerIcon />}
-        </button>
-      </div>
+      
     </header>
   )
 }

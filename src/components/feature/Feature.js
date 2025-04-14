@@ -19,6 +19,8 @@ const mainShowcases = [
     imgSrc: '/assets/png/alma_2.jpeg',
     smallDesImgSrc: '/assets/png/alma_2.jpeg',
     mobileImgSrc: '/assets/png/alma_2.jpeg',
+    isDark: true,
+
   },
   {
     title: 'AI native business',
@@ -27,7 +29,6 @@ const mainShowcases = [
     smallDesImgSrc: '/assets/png/Genuine_human_reactions_to_new_technology_.png',
     mobileImgSrc: '/assets/png/Genuine_human_reactions_to_new_technology_.png',
     isDark: true,
-    textBoxClass: stl.ipadPro,
   },
 ]
 
