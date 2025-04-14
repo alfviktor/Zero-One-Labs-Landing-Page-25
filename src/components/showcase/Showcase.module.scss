@@ -14,14 +14,14 @@
 
 .imageWrapper {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 70%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
@@ -31,7 +31,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center center;
 }
 
 .textBox {
@@ -39,7 +39,8 @@
   gap: 0.5rem;
   position: relative;
   z-index: 2;
-  padding-bottom: 30%;
+  padding: 2rem 0 30%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
 
   h1 {
     font-size: 56px;
@@ -76,8 +77,12 @@
 }
 
 .dark {
-  background-color: $black;
+  background-color: rgba(0,0,0,0.3);
   color: $white;
+  
+  .textBox {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 80%, transparent 100%);
+  }
 }
 
 .small {
@@ -96,20 +101,12 @@
 }
 
 .tablet {
-  .imageWrapper {
-    height: 65%;
-  }
-  
   .textBox {
     padding-bottom: 25%;
   }
 }
 
 .mobile {
-  .imageWrapper {
-    height: 55%;
-  }
-  
   .textBox {
     padding-bottom: 20%;
   }
@@ -119,19 +116,11 @@
   .container {
     min-height: 90vh;
   }
-  
-  .imageWrapper {
-    height: 75%;
-  }
 }
 
 @media (max-width: 1024px) {
   .container {
     min-height: 75vh;
-  }
-  
-  .imageWrapper {
-    height: 65%;
   }
   
   .textBox {
@@ -142,10 +131,6 @@
 @media (max-width: 768px) {
   .container {
     min-height: 70vh;
-  }
-  
-  .imageWrapper {
-    height: 60%;
   }
   
   .textBox {
@@ -159,12 +144,8 @@
     padding: 1.5rem 1.5rem 0;
   }
   
-  .imageWrapper {
-    height: 50%;
-  }
-  
   .textBox {
-    padding-bottom: 20%;
+    padding: 1.5rem 0 20%;
     gap: 0.35rem;
     
     h1 {
@@ -179,10 +160,6 @@
   .small {
     min-height: 60vh;
     padding: 1rem 1rem 0;
-    
-    .imageWrapper {
-      height: 45%;
-    }
   }
 }
 
@@ -192,11 +169,7 @@
     padding: 1.25rem 1.25rem 0;
   }
   
-  .imageWrapper {
-    height: 45%;
-  }
-  
   .textBox {
-    padding-bottom: 18%;
+    padding: 1rem 0 18%;
   }
 }
