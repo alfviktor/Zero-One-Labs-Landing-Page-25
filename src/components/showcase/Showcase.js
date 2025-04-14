@@ -37,14 +37,8 @@ const Showcase = ({
         isSmallDes && !isMobile && stl.tablet,
         customClass
       )}
+      style={{ backgroundImage: `url(${currentImgSrc})` }}
     >
-      <div className={stl.imageWrapper}>
-        <img 
-          src={currentImgSrc} 
-          alt={title} 
-          className={stl.showcaseImage} 
-        />
-      </div>
       <div className={clsx(stl.textBox, textBoxClass)}>
         <h1>{title}</h1>
         <h3>{subTitle}</h3>
