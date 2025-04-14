@@ -21,42 +21,49 @@ const Showcase = ({
   customBtns = [],
   customClass,
   textBoxClass,
-}) => (
-  <section
-    style={{
-      backgroundImage: `url(${
-        (isMobile && mobileImgSrc) || 
-        (isSmallDes && smallDesImgSrc) || 
-        imgSrc
-      })`,
-    }}
-    className={clsx(
-      stl.container,
-      isDark && stl.dark,
-      isSmall && stl.small,
-      isMobile && stl.mobile,
-      isSmallDes && !isMobile && stl.tablet,
-      customClass
-    )}
-  >
-    <div className={clsx(stl.textBox, textBoxClass)}>
-      <h1>{title}</h1>
-      <h3>{subTitle}</h3>
-      <p>{description}</p>
-
-      <div className={stl.btnsRow}>
-        {customBtns.length ? (
-          customBtns.map(label => <Button key={label} label={label} />)
-        ) : (
-          <>
-            <Button label={primaryBtnLabel} />
-            <Button label={secondaryBtnLabel} />
-          </>
-        )}
+}) => {
+  // Determine which image source to use based on screen size
+  const currentImgSrc = (isMobile && mobileImgSrc) || 
+                        (isSmallDes && smallDesImgSrc) || 
+                        imgSrc;
+  
+  return (
+    <section
+      className={clsx(
+        stl.container,
+        isDark && stl.dark,
+        isSmall && stl.small,
+        isMobile && stl.mobile,
+        isSmallDes && !isMobile && stl.tablet,
+        customClass
+      )}
+    >
+      <div className={stl.imageWrapper}>
+        <img 
+          src={currentImgSrc} 
+          alt={title} 
+          className={stl.showcaseImage} 
+        />
       </div>
-    </div>
-  </section>
-)
+      <div className={clsx(stl.textBox, textBoxClass)}>
+        <h1>{title}</h1>
+        <h3>{subTitle}</h3>
+        {description && <p>{description}</p>}
+
+        <div className={stl.btnsRow}>
+          {customBtns.length ? (
+            customBtns.map(label => <Button key={label} label={label} />)
+          ) : (
+            <>
+              <Button label={primaryBtnLabel} />
+              <Button label={secondaryBtnLabel} />
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 Showcase.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
