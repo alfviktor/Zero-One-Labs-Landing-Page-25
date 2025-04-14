@@ -4,13 +4,16 @@
   @extend .flexColStart;
   align-items: center;
   width: 100%;
-  height: 600px;
-  padding: 2rem 2rem 700px;
+  min-height: 600px;
+  padding: 2rem 2rem;
+  padding-bottom: min(700px, 70vh);
   color: $black;
   background-color: $white;
   background-repeat: no-repeat;
   background-position: bottom center;
+  background-size: contain;
   position: relative;
+  overflow: hidden;
 }
 
 .textBox {
@@ -71,10 +74,44 @@
   }
 }
 
+.tablet {
+  background-size: auto 55%;
+}
+
+.mobile {
+  background-size: auto 40%;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    min-height: 700px;
+    padding-bottom: min(800px, 75vh);
+    background-size: auto 65%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    min-height: 550px;
+    padding-bottom: min(600px, 60vh);
+    background-size: auto 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 500px;
+    padding-bottom: min(500px, 55vh);
+    background-size: auto 50%;
+  }
+}
+
 @media (max-width: 648px) {
   .container {
-    height: 600px;
-    padding-bottom: 4rem;
+    min-height: 450px;
+    padding: 1.5rem 1.5rem;
+    padding-bottom: min(350px, 50vh);
+    background-size: auto 45%;
 
     h1 {
       font-size: 2rem;
@@ -86,11 +123,21 @@
   }
 
   .small {
-    height: 400px !important;
+    min-height: 400px;
     padding: 1rem;
+    background-size: auto 40%;
   }
 
   .textBox {
     gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-height: 400px;
+    padding: 1.25rem 1.25rem;
+    padding-bottom: min(300px, 45vh);
+    background-size: auto 40%;
   }
 }

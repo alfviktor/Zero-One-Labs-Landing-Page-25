@@ -25,8 +25,8 @@ const Showcase = ({
   <section
     style={{
       backgroundImage: `url(${
-        (isSmallDes && (smallDesImgSrc || imgSrc)) ||
-        (isMobile && (mobileImgSrc || imgSrc)) ||
+        (isMobile && mobileImgSrc) || 
+        (isSmallDes && smallDesImgSrc) || 
         imgSrc
       })`,
     }}
@@ -34,6 +34,8 @@ const Showcase = ({
       stl.container,
       isDark && stl.dark,
       isSmall && stl.small,
+      isMobile && stl.mobile,
+      isSmallDes && !isMobile && stl.tablet,
       customClass
     )}
   >
