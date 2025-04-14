@@ -6,27 +6,23 @@ import stl from './Feature.module.scss'
 
 const mainShowcases = [
   {
-    title: 'iPhone 14 Pro',
-    subTitle: 'Pro. Beyond.',
-    imgSrc: '/assets/png/iphone-14-pro.png',
-    smallDesImgSrc: '/assets/png/iphone-14-pro-tablet.png',
-    mobileImgSrc: '/assets/png/iphone-14-pro-mobile.png',
+    title: 'Work that matters',
+    subTitle: 'Everything else is just busy work.',
+    imgSrc: '/assets/png/man-ai-map.jpeg',
+    smallDesImgSrc: '/assets/png/man-ai-map.jpeg',
+    mobileImgSrc: '/assets/png/man-ai-map.jpeg',
     isDark: true,
   },
   {
-    title: 'iPhone 14',
-    subTitle: 'Wonderfull.',
+    title: 'Alma',
+    subTitle: 'Teaching made wonderfully simple.',
     imgSrc: '/assets/png/iphone-14.png',
     smallDesImgSrc: '/assets/png/iphone-14-tablet.png',
     mobileImgSrc: '/assets/png/iphone-14-mobile.png',
   },
   {
-    title: 'iPad Pro',
-    subTitle: (
-      <>
-        Supercharged by <span className={stl.m2}></span>
-      </>
-    ),
+    title: 'AI native business',
+    subTitle: 'At the intersection of technology, business, and humanity, something magical happens.',
     imgSrc: '/assets/png/ipad-pro.png',
     smallDesImgSrc: '/assets/png/ipad-pro-tablet.png',
     mobileImgSrc: '/assets/png/ipad-pro-mobile.png',

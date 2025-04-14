@@ -1,29 +1,55 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+
+// Debounce function to limit frequent execution
+function debounce(func, wait) {
+  let timeout
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout)
+      func(...args)
+    }
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+  }
+}
 
 export const useWindow = () => {
   const [windowSize, setWindowSize] = useState({
-    width: null,
-    height: null,
-    isSmallDes: null,
-    isTablet: null,
-    isMobile: null,
+    width: typeof window !== 'undefined' ? window.innerWidth : 1200,
+    height: typeof window !== 'undefined' ? window.innerHeight : 800,
+    isSmallDes: false,
+    isTablet: false,
+    isMobile: false,
   })
 
+  const calculateDimensions = useCallback(() => {
+    if (typeof window === 'undefined') return
+    
+    const width = window.innerWidth
+    const height = window.innerHeight
+    
+    return {
+      width,
+      height,
+      isSmallDes: width >= 960 && width <= 1078,
+      isTablet: width >= 648 && width <= 960,
+      isMobile: width <= 648,
+    }
+  }, [])
+
   useEffect(() => {
-    const handleResize = () =>
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-        isSmallDes: window.innerWidth >= 960 && window.innerWidth <= 1078,
-        isTablet: window.innerWidth >= 648 && window.innerWidth <= 960,
-        isMobile: window.innerWidth <= 648,
-      })
+    // Handle initial size
+    setWindowSize(calculateDimensions())
+    
+    // Debounced resize handler to improve performance
+    const handleResize = debounce(() => {
+      setWindowSize(calculateDimensions())
+    }, 150) // 150ms debounce time
 
     window.addEventListener('resize', handleResize)
-    handleResize() // Set initial window size
-
+    
     return () => window.removeEventListener('resize', handleResize)
-  }, []) // Empty array ensures that effect only runs on mount and unmount
+  }, [calculateDimensions])
 
   return windowSize
 }
