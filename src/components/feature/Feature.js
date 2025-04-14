@@ -16,9 +16,9 @@ const mainShowcases = [
   {
     title: 'Alma',
     subTitle: 'Teaching made wonderfully simple.',
-    imgSrc: '/assets/png/alma.jpeg',
-    smallDesImgSrc: '/assets/png/alma.jpeg',
-    mobileImgSrc: '/assets/png/alma.jpeg',
+    imgSrc: '/assets/png/alma_2.jpeg',
+    smallDesImgSrc: '/assets/png/alma_2.jpeg',
+    mobileImgSrc: '/assets/png/alma_2.jpeg',
   },
   {
     title: 'AI native business',
