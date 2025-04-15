@@ -12,7 +12,6 @@ const mainShowcases = [
     smallDesImgSrc: '/assets/png/man-ai-map.jpeg',
     mobileImgSrc: '/assets/png/man-ai-map.jpeg',
     isDark: true,
-    textBoxClass: stl.ipadPro,
   },
   {
     title: 'Alma',
@@ -21,7 +20,6 @@ const mainShowcases = [
     smallDesImgSrc: '/assets/png/alma_2.jpeg',
     mobileImgSrc: '/assets/png/alma_2.jpeg',
     isDark: true,
-    textBoxClass: stl.ipadPro,
   },
   {
     title: 'AI native business',
@@ -30,7 +28,6 @@ const mainShowcases = [
     smallDesImgSrc: '/assets/png/Genuine_human_reactions_to_new_technology_.png',
     mobileImgSrc: '/assets/png/Genuine_human_reactions_to_new_technology_.png',
     isDark: true,
-    textBoxClass: stl.ipadPro,
   },
 ]
 
